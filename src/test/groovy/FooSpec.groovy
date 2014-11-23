@@ -20,4 +20,19 @@ class FooSpec extends spock.lang.Specification {
        foo == '''\
             bar'''.stripIndent()
    }
+
+   void "expect this to fail the assert"() {
+       expect:
+       "bar" == '''\
+foo'''
+   }
+
+   void "expect this to fail the assert (multiline string in when)"() {
+        when:
+	      String expected = '''\
+		        foo'''.stripIndent()
+
+        then:
+        "bar" == expected
+   }
 }
