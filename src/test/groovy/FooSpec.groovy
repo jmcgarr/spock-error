@@ -1,12 +1,18 @@
 class FooSpec extends spock.lang.Specification {
 
-   void "why does this pass"() {
+   void "expect this pass with no exceptions"( ){
        expect:
        "foo" == '''\
             foo'''.stripIndent()
    }
 
-   void "why does this fail with a compilation error"() {
+   void "expect this to fail the assert but throws an exception instead"() {
+       expect:
+       "bar" == '''\
+            foo'''.stripIndent()
+   }
+
+   void "expect this to fail the assert, but throws an exception instead (using different syntax)"() {
        when:
        String foo = 'foo'
        
