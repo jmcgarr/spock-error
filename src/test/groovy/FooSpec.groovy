@@ -35,4 +35,10 @@ foo'''
         then:
         "bar" == expected
    }
+
+   void "fails as expected"() {
+	expect:
+        "bar" == '''foo
+               foo'''.stripIndent()
+   }
 }
